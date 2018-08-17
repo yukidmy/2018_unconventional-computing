@@ -1,0 +1,28 @@
+directive sample 1000000.0 1000
+directive plot <1 2^ 3>; <4 5^ 6>; <7 8^ 9>
+directive scale 100.0
+def na = 10
+def nb = 8
+def nc = 4
+def N = 1000
+def input_a() = <1 2^ 3>
+def input_b() = <4 5^ 6>
+def input_c() = <7 8^ 9>
+def fuela() = <10^ 1 2^ 1 2^>
+def fuelb() = <11^ 4 5^ 4 5^>
+def fuelc() = <12^ 7 8^ 7 8^>
+def ab_aa() = {2^*}:[3 5^]:[6 10^]:[1 2^]<3>:[1 2^]<3>
+def bc_bb() = {5^*}:[6 8^]:[9 11^]:[4 5^]<6>:[4 5^]<6>
+def ca_cc() = {8^*}:[9 2^]:[3 12^]:[7 8^]<9>:[7 8^]<9>
+
+
+( na*input_a()
+| nb*input_b()
+| nc*input_c()
+| N*ab_aa() 
+| N*bc_bb() 
+| N*ca_cc() 
+| N*fuela() 
+| N*fuelb() 
+| N*fuelc() 
+)
